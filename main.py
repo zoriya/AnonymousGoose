@@ -3,6 +3,7 @@ import time
 import pyxhook
 
 from term_utils import TermUtils
+from detect_term import DetectTerm
 from command_helper import CommandHelper
 
 
@@ -15,6 +16,8 @@ class AnonymousGoose:
 		self.keyboard_listener.KeyUp = self.key_pressed
 		self.keyboard_listener.HookKeyboard()
 		self.keyboard_listener.start()
+		# print(DetectTerm.find_terminal())
+		# time.sleep(1)
 		TermUtils.print("YOU HAVE BEEN HACKED.\n")
 		self.run()
 
