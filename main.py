@@ -1,4 +1,4 @@
 #!/usr/bin/env python3
-from my_print import my_print
+from term_utils import TermUtils
 
-my_print("YOU HAVE BEEN HACKED.\n")
+TermUtils.print("YOU HAVE BEEN HACKED.\n")
