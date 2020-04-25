@@ -45,11 +45,14 @@ class Term:
 			return False
 
 	def print_creepy(self, msg):
-		with open(self.tty, "w") as file:
-			for char in msg:
-				file.write(char)
-				file.flush()
-				time.sleep(random.uniform(0, 0.2))
+		try:
+			with open(self.tty, "w") as file:
+				for char in msg:
+					file.write(char)
+					file.flush()
+					time.sleep(random.uniform(0, 0.2))
+		except PermissionError:
+			return False
 
 	@staticmethod
 	def print_all_creepy(msg):
