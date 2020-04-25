@@ -2,6 +2,7 @@ import random
 from abc import ABC, abstractmethod
 
 
+
 class Trick(ABC):
 	@property
 	@abstractmethod
@@ -32,7 +33,8 @@ class Trick(ABC):
 		from tricks.glorify_goose import GlorifyGooseTrick
 		tricks = [
 			LaughingGooseTrick,
-			GlorifyGooseTrick
+			GlorifyGooseTrick,
+			AnimAsciiTrick
 		]
 
 		return random.choice(tricks)()
