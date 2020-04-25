@@ -31,6 +31,7 @@ class Trick(ABC):
 	def get_random_trick():
 		from tricks.laughing_goose import LaughingGooseTrick
 		from tricks.glorify_goose import GlorifyGooseTrick
+		from tricks.anim_ascii import AnimAsciiTrick
 		tricks = [
 			LaughingGooseTrick,
 			GlorifyGooseTrick,
