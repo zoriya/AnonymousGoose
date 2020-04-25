@@ -1,8 +1,8 @@
 import time
 import os
+import random
 
 from trick import Trick
-from command_helper import CommandHelper
 
 
 class ReflectionTrick(Trick):
@@ -22,6 +22,7 @@ class ReflectionTrick(Trick):
 		pass
 
 	def run(self):
-		os.system("xrandr --output $(xrandr -q | grep ' connected' | cut -f 1 -d ' ' | cut -f 1 -d '\n') --reflect x")
+		selected = random.choice(["x", "y", "xy"])
+		os.system(f"xrandr --output $(xrandr -q | grep ' connected' | cut -f 1 -d ' ' | cut -f 1 -d '\n') --reflect {selected}")
 		time.sleep(5)
 		os.system("xrandr --output $(xrandr -q | grep ' connected' | cut -f 1 -d ' ' | cut -f 1 -d '\n') --reflect normal")
