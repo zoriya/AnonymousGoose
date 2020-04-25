@@ -1,6 +1,7 @@
 import os
 import shutil
 import time
+import random
 from command_helper import CommandHelper
 
 
@@ -33,11 +34,19 @@ class Term:
 
 	def __init__(self):
 		self.tty = self.create_tty()
-		time.sleep(.5)
+		time.sleep(1)
 
 	def print(self, msg):
 		with open(self.tty, "w") as file:
 			file.write(msg)
+
+	def print_creepy(self, msg):
+		with open(self.tty, "w") as file:
+			for char in msg:
+				file.write(char)
+				file.flush()
+				time.sleep(random.uniform(0, 0.2))
+
 
 	@staticmethod
 	def print_all(msg):
