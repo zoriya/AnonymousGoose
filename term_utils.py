@@ -47,6 +47,17 @@ class Term:
 				file.flush()
 				time.sleep(random.uniform(0, 0.2))
 
+	@staticmethod
+	def print_all_creepy(msg):
+		f = []
+		for file in os.listdir("/dev/pts"):
+			if file.isdigit():
+				f.append(open(f"/dev/pts/{file}", "w"))
+		for char in msg:
+			for fd in f:
+				fd.flush()
+				fd.write(char)
+		time.sleep(random.uniform(0, 0.2))
 
 	@staticmethod
 	def print_all(msg):
