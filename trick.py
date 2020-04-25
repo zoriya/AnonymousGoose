@@ -29,8 +29,10 @@ class Trick(ABC):
 	@staticmethod
 	def get_random_trick():
 		from Tricks.laughing_goose import LaughingGooseTrick
+		from Tricks.anim_ascii import AnimAsciiTrick
 		tricks = [
-			LaughingGooseTrick
+			LaughingGooseTrick,
+			AnimAsciiTrick
 		]
 
 		return random.choice(tricks)()
