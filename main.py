@@ -5,8 +5,7 @@ import pyxhook
 from term_utils import Term
 from command_helper import CommandHelper
 from trick import Trick
-from tricks.anim_ascii import AnimAsciiTrick
-
+from scenario import intro
 
 class AnonymousGoose:
 	def __init__(self):
@@ -54,7 +53,7 @@ class AnonymousGoose:
 
 
 if __name__ == "__main__":
-	AnimAsciiTrick().run()
+	intro()
 	goose = AnonymousGoose()
 	goose.run()
 	goose.stop()
