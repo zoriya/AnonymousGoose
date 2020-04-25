@@ -3,9 +3,15 @@ from abc import ABC, abstractmethod
 
 
 class Trick(ABC):
-	def __init__(self):
-		self.name = "Undefined"
-		self.delay = 1
+	@property
+	@abstractmethod
+	def name(self):
+		raise NotImplementedError
+	
+	@property
+	@abstractmethod
+	def delay(self):
+		return 1
 	
 	@abstractmethod
 	def run(self):
