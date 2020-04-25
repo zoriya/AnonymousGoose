@@ -54,28 +54,5 @@ class AnonymousGoose:
 
 if __name__ == "__main__":
 	goose = AnonymousGoose()
-	term = Term()
-	term.print("""
-           `:-.......``  
-           +:o+++:---::  
-          `/--::/o/-+s+. 
-          `/::/so/:-:-:` 
-          `s:----------. 
-           /:+oo//soo/o  
-           `+o/://///+.  
-             /do:-:m--   
-             oNNmy-o`    
-  `-.  `-/sdmNNNNNs`     
-  sNNmmNNNNNNNNNNNNd`    
-  :NNNNNNNNNNNNNNNNN-    
-   -NNNNNNNNNNNNNNNd     
-    oNNNNNNNNNNNNNm.     
-     +NNNNNNNNNNNN/      
-      oNNNNNdssmNd`      
-       oNNy-   .y`       
-        :o     .s        
-        `s`    -sso+/`   
-        `ss+:.   .-.`    
-        .--:.` """"")
 	goose.run()
 	goose.stop()
