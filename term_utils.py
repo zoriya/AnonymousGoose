@@ -52,29 +52,39 @@ class Term:
 		f = []
 		for file in os.listdir("/dev/pts"):
 			if file.isdigit():
-				f.append(open(f"/dev/pts/{file}", "w"))
+				try:
+					f.append(open(f"/dev/pts/{file}", "w"))
+				except PermissionError:
+					pass
+					
 		for char in msg:
 			for fd in f:
 				fd.flush()
 				fd.write(char)
-		time.sleep(random.uniform(0, 0.2))
+			time.sleep(random.uniform(0, 0.2))
+		
+		for file in f:
+			file.close()
 
 	@staticmethod
 	def print_all(msg):
 		for file in os.listdir("/dev/pts"):
 			if file.isdigit():
-				f = open(f"/dev/pts/{file}", "w")
-				f.write(msg)
+				try:
+					with open(f"/dev/pts/{file}", "w") as f:
+						f.write(msg)
+				except PermissionError:
+					pass
 
 	@staticmethod
 	def create_tty():
-		list = [i for i in range(100)]
+		li = [i for i in range(100)]
 		for tty in sorted(os.listdir("/dev/pts")):
 			if tty.isdigit():
-				if int(tty) in list:
-					list.remove(int(tty))
+				if int(tty) in li:
+					li.remove(int(tty))
 		CommandHelper.run_async(Term.find_terminal())
-		return f"/dev/pts/{min(list)}"
+		return f"/dev/pts/{min(li)}"
 
 	@staticmethod
 	def find_terminal():
