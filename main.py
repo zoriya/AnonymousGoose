@@ -15,8 +15,6 @@ class AnonymousGoose:
 		self.keyboard_listener.KeyUp = self.key_pressed
 		self.keyboard_listener.HookKeyboard()
 		self.keyboard_listener.start()
-		# print(DetectTerm.find_terminal())
-		# time.sleep(1)
 		Term.print_all("YOU HAVE BEEN HACKED.\n")
 
 	def __del__(self):
@@ -46,6 +44,6 @@ class AnonymousGoose:
 if __name__ == "__main__":
 	goose = AnonymousGoose()
 	term = Term()
-	print(term.tty)
+	term.print("Test")
 	goose.run()
 	goose.stop()

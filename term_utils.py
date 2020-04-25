@@ -1,5 +1,6 @@
 import os
 import shutil
+import time
 from command_helper import CommandHelper
 
 
@@ -32,9 +33,11 @@ class Term:
 
 	def __init__(self):
 		self.tty = self.create_tty()
+		time.sleep(.5)
 
 	def print(self, msg):
-		CommandHelper.run_async("{msg} > {self}")
+		with open(self.tty, "w") as file:
+			file.write(msg)
 
 	@staticmethod
 	def print_all(msg):
