@@ -37,7 +37,7 @@ class Trick(ABC):
 		tricks = [
 			LaughingGooseTrick,
 			GlorifyGooseTrick,
-			#AnimAsciiTrick
+			AnimAsciiTrick
 		]
 		x_tricks = [
 			ReflectionTrick,
