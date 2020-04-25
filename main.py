@@ -45,5 +45,7 @@ class AnonymousGoose:
 
 if __name__ == "__main__":
 	goose = AnonymousGoose()
+	term = Term()
+	print(term.tty)
 	goose.run()
 	goose.stop()
