@@ -94,4 +94,3 @@ class Term:
 			if shutil.which(term) is not None:
 				Term.terminal = term
 				return term
-
