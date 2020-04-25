@@ -33,11 +33,13 @@ class Trick(ABC):
 		from tricks.glorify_goose import GlorifyGooseTrick
 		from tricks.anim_ascii import AnimAsciiTrick
 		from tricks.reflection import ReflectionTrick
+		from tricks.rotation import RotationTrick
 		tricks = [
 			LaughingGooseTrick,
 			GlorifyGooseTrick,
 			#AnimAsciiTrick,
-			ReflectionTrick
+			ReflectionTrick,
+			RotationTrick
 		]
 
 		return random.choice(tricks)()
