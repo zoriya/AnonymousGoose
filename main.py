@@ -18,7 +18,6 @@ class AnonymousGoose:
 		# print(DetectTerm.find_terminal())
 		# time.sleep(1)
 		Term.print_all("YOU HAVE BEEN HACKED.\n")
-		self.run()
 
 	def __del__(self):
 		if not self.stopped:
@@ -46,4 +45,5 @@ class AnonymousGoose:
 
 if __name__ == "__main__":
 	goose = AnonymousGoose()
+	goose.run()
 	goose.stop()
