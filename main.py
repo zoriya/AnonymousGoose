@@ -7,6 +7,7 @@ from command_helper import CommandHelper
 from trick import Trick
 from scenario import intro
 
+
 class AnonymousGoose:
 	def __init__(self):
 		self.should_exit = False
