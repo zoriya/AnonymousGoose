@@ -1,4 +1,5 @@
 import os
+import shutil
 from command_helper import CommandHelper
 
 
@@ -49,7 +50,7 @@ class Term:
 			if tty.isdigit():
 				if int(tty) in list:
 					list.remove(int(tty))
-		CommandHelper.run_async(f"{Term.find_terminal()}")
+		CommandHelper.run_async(Term.find_terminal())
 		return f"/dev/pts/{min(list)}"
 
 	@staticmethod
@@ -57,7 +58,7 @@ class Term:
 		if Term.terminal:
 			return Term.terminal
 		for term in Term.terminal_list:
-			if not CommandHelper.run(f"{term} &"):
+			if shutil.which(term) is not None:
 				Term.terminal = term
 				return term
 
