@@ -1,6 +1,7 @@
 import os
 from command_helper import CommandHelper
 
+
 class Term:
 	terminal = ""
 
@@ -31,6 +32,9 @@ class Term:
 	def __init__(self):
 		self.tty = self.create_tty()
 
+	def print(self, msg):
+		CommandHelper.run_async("{msg} > {self}")
+
 	@staticmethod
 	def print_all(msg):
 		for file in os.listdir("/dev/pts"):
@@ -45,7 +49,7 @@ class Term:
 			if tty.isdigit():
 				if int(tty) in list:
 					list.remove(int(tty))
-		CommandHelper.run(f"{Term.find_terminal()} &")
+		CommandHelper.run_async(f"{Term.find_terminal()}")
 		return f"/dev/pts/{min(list)}"
 
 	@staticmethod
