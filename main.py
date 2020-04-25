@@ -4,6 +4,7 @@ import pyxhook
 
 from term_utils import Term
 from command_helper import CommandHelper
+from trick import Trick
 
 
 class AnonymousGoose:
@@ -22,11 +23,18 @@ class AnonymousGoose:
 			self.keyboard_listener.cancel()
 
 	def run(self):
+		next_trick_time = 5
 		while not self.should_exit:
 			try:
 				if CommandHelper.run("killall htop") == 0 or CommandHelper.run("killall top") == 0:
 					Term.print_all("You tough that this will be as easy as this?\n")
 				time.sleep(1)
+				next_trick_time -= 1
+				if next_trick_time <= 0:
+					trick = Trick.get_random_trick()
+					next_trick_time = trick.delay
+					trick.run()
+					self.tricks.append(trick)
 			except KeyboardInterrupt:
 				...
 
@@ -44,6 +52,27 @@ class AnonymousGoose:
 if __name__ == "__main__":
 	goose = AnonymousGoose()
 	term = Term()
-	term.print("Test")
+	term.print("""
+           `:-.......``  
+           +:o+++:---::  
+          `/--::/o/-+s+. 
+          `/::/so/:-:-:` 
+          `s:----------. 
+           /:+oo//soo/o  
+           `+o/://///+.  
+             /do:-:m--   
+             oNNmy-o`    
+  `-.  `-/sdmNNNNNs`     
+  sNNmmNNNNNNNNNNNNd`    
+  :NNNNNNNNNNNNNNNNN-    
+   -NNNNNNNNNNNNNNNd     
+    oNNNNNNNNNNNNNm.     
+     +NNNNNNNNNNNN/      
+      oNNNNNdssmNd`      
+       oNNy-   .y`       
+        :o     .s        
+        `s`    -sso+/`   
+        `ss+:.   .-.`    
+        .--:.` """"")
 	goose.run()
 	goose.stop()
