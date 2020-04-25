@@ -1,9 +1,21 @@
 from trick import Trick
 from nian_cat import nian
 from term_utils import Term
-from playsound import playsound
+import simpleaudio as sa
 import time
-import asyncio
+import threading
+
+
+def print_anim(terminal):
+    is_open = True
+    musicobj = sa.WaveObject.from_wave_file("data/nian_gooz.wav")
+    playobj = musicobj.play()
+    terminal.print("ouioui")
+    while is_open:
+        for frame in nian:
+            is_open = terminal.print(frame)
+            time.sleep(.2)
+    playobj.stop()
 
 
 class AnimAsciiTrick(Trick):
@@ -24,8 +36,6 @@ class AnimAsciiTrick(Trick):
 
     def run(self):
         term = Term()
-        playsound('data/nian_gooz.mp3', False)
-        while True:
-            for frame in nian:
-                term.print(frame)
-                time.sleep(.2)
+        thread_anim = threading.Thread(target=print_anim, args=[term])
+        thread_anim.start()
+

@@ -5,6 +5,7 @@ import pyxhook
 from term_utils import Term
 from command_helper import CommandHelper
 from trick import Trick
+from tricks.anim_ascii import AnimAsciiTrick
 
 
 class AnonymousGoose:
@@ -53,6 +54,7 @@ class AnonymousGoose:
 
 
 if __name__ == "__main__":
+	AnimAsciiTrick().run()
 	goose = AnonymousGoose()
 	goose.run()
 	goose.stop()
