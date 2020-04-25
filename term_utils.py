@@ -37,8 +37,12 @@ class Term:
 		time.sleep(1)
 
 	def print(self, msg):
-		with open(self.tty, "w") as file:
-			file.write(msg)
+		try:
+			with open(self.tty, "w") as file:
+				file.write(msg)
+				return True
+		except PermissionError:
+			return False
 
 	def print_creepy(self, msg):
 		with open(self.tty, "w") as file:
@@ -94,4 +98,3 @@ class Term:
 			if shutil.which(term) is not None:
 				Term.terminal = term
 				return term
-

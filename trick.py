@@ -2,6 +2,7 @@ import random
 from abc import ABC, abstractmethod
 
 
+
 class Trick(ABC):
 	@property
 	@abstractmethod
@@ -28,10 +29,11 @@ class Trick(ABC):
 	
 	@staticmethod
 	def get_random_trick():
-		from Tricks.laughing_goose import LaughingGooseTrick
-		from Tricks.anim_ascii import AnimAsciiTrick
+		from tricks.laughing_goose import LaughingGooseTrick
+		from tricks.glorify_goose import GlorifyGooseTrick
 		tricks = [
 			LaughingGooseTrick,
+			GlorifyGooseTrick,
 			AnimAsciiTrick
 		]
 
