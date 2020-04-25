@@ -21,6 +21,8 @@ class AnonymousGoose:
 	def __del__(self):
 		if not self.stopped:
 			self.keyboard_listener.cancel()
+		for trick in self.tricks:
+			trick.revert()
 
 	def run(self):
 		next_trick_time = 5
@@ -34,7 +36,8 @@ class AnonymousGoose:
 					trick = Trick.get_random_trick()
 					next_trick_time = trick.delay
 					trick.run()
-					self.tricks.append(trick)
+					if trick.is_reversible:
+						self.tricks.append(trick)
 			except KeyboardInterrupt:
 				...
 

@@ -10,5 +10,12 @@ class TestTrick(Trick):
 	def delay(self):
 		return 1
 	
+	@property
+	def is_reversible(self):
+		return False
+	
+	def revert(self):
+		pass
+	
 	def run(self):
 		print("Test succeed")

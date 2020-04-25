@@ -12,6 +12,15 @@ class Trick(ABC):
 	@abstractmethod
 	def delay(self):
 		return 1
+
+	@property
+	@abstractmethod
+	def is_reversible(self):
+		raise NotImplementedError
+	
+	@abstractmethod
+	def revert(self):
+		raise NotImplementedError
 	
 	@abstractmethod
 	def run(self):
