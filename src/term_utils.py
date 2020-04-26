@@ -65,22 +65,27 @@ class Term:
 	def print_all_creepy(msg):
 		f = []
 		for file in os.listdir("/dev/pts"):
-			if file.isdigit() and int(file) != 0:
+			if file.isdigit() and file != "0":
 				try:
+					print(file)
 					f.append(open(f"/dev/pts/{file}", "w"))
 				except PermissionError:
-					pass
-				except OSError:
 					pass
 
 		for char in msg:
 			for fd in f:
-				fd.flush()
-				fd.write(char)
+				try:
+					fd.flush()
+					fd.write(char)
+				except OSError:
+					pass
 			time.sleep(random.uniform(0, 0.2))
 
 		for file in f:
-			file.close()
+			try:
+				file.close()
+			except OSError:
+				pass
 
 	@staticmethod
 	def print_all(msg):
