@@ -19,7 +19,9 @@ class Scenario(Trick):
 
 	@property
 	def delay(self):
-		return 5
+		if Scenario.id_scenario < len(event):
+			return 5
+		return 0
 
 	@property
 	def is_reversible(self):
@@ -29,7 +31,7 @@ class Scenario(Trick):
 		pass
 
 	def run(self):
-		if not Scenario.id_scenario > len(event):
+		if Scenario.id_scenario < len(event):
 			Scenario.event(event[Scenario.id_scenario])
 			Scenario.id_scenario += 1
 
