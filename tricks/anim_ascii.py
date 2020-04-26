@@ -6,19 +6,20 @@ import time
 import threading
 
 
-def print_anim(terminal):
-    is_open = True
-    musicobj = sa.WaveObject.from_wave_file("data/nian_gooz.wav")
-    playobj = musicobj.play()
-    terminal.print("ouioui")
-    while is_open:
-        for frame in nian:
-            is_open = terminal.print(frame)
-            time.sleep(.2)
-    playobj.stop()
-
-
 class AnimAsciiTrick(Trick):
+
+    @staticmethod
+    def print_anim(terminal):
+        is_open = True
+        musicobj = sa.WaveObject.from_wave_file("data/nian_gooz.wav")
+        playobj = musicobj.play()
+        terminal.print("ouioui")
+        while is_open:
+            for frame in nian:
+                is_open = terminal.print(frame)
+                time.sleep(.2)
+        playobj.stop()
+
     @property
     def name(self):
         return "anim"
@@ -36,6 +37,6 @@ class AnimAsciiTrick(Trick):
 
     def run(self):
         term = Term()
-        thread_anim = threading.Thread(target=print_anim, args=[term])
+        thread_anim = threading.Thread(target=AnimAsciiTrick.print_anim, args=[term])
         thread_anim.start()
 

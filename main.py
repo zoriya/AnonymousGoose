@@ -56,8 +56,8 @@ class AnonymousGoose:
 
 if __name__ == "__main__":
 	disable_x = len(sys.argv) == 2 and sys.argv[1] == '-x'
-	
 	intro()
 	goose = AnonymousGoose()
 	goose.run(disable_x)
 	goose.stop()
+	sys.exit(0)
