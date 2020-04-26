@@ -43,6 +43,8 @@ class Term:
 				return True
 		except PermissionError:
 			return False
+		except OSError:
+			return False
 
 	def print_creepy(self, msg):
 		try:
@@ -68,6 +70,8 @@ class Term:
 					f.append(open(f"/dev/pts/{file}", "w"))
 				except PermissionError:
 					pass
+				except OSError:
+					pass
 
 		for char in msg:
 			for fd in f:
@@ -86,6 +90,8 @@ class Term:
 					with open(f"/dev/pts/{file}", "w") as f:
 						f.write(msg)
 				except PermissionError:
+					pass
+				except OSError:
 					pass
 
 	@staticmethod

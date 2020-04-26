@@ -59,4 +59,3 @@ if __name__ == "__main__":
 	goose = AnonymousGoose()
 	goose.run(disable_x)
 	goose.stop()
-	sys.exit(0)
