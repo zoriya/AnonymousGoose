@@ -25,12 +25,11 @@ class AnonymousGoose:
 			trick.revert()
 
 	def run(self, disable_x):
-		next_trick_time = 2
+		next_trick_time = 3
 		while not self.should_exit:
 			try:
 				if CommandHelper.run("killall htop") == 0 or CommandHelper.run("killall top") == 0:
 					Term.print_all("You tough that this will be as easy as this?\n")
-				time.sleep(1)
 				next_trick_time -= 1
 				if next_trick_time <= 0:
 					trick = Trick.get_random_trick(not disable_x)
@@ -38,6 +37,7 @@ class AnonymousGoose:
 					trick.run()
 					if trick.is_reversible:
 						self.tricks.append(trick)
+				time.sleep(1)
 			except KeyboardInterrupt:
 				...
 
