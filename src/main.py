@@ -2,6 +2,7 @@
 import time
 import pyxhook
 import sys
+import simpleaudio as sa
 
 from term_utils import Term
 from command_helper import CommandHelper
@@ -25,15 +26,16 @@ class AnonymousGoose:
 		for trick in self.tricks:
 			trick.revert()
 
-	def run(self, disable_x):
+	def run(self, dis):
 		next_trick_time = 3
 		while not self.should_exit:
 			try:
 				if CommandHelper.run("killall htop") == 0 or CommandHelper.run("killall top") == 0:
 					Term.print_all("You tough that this will be as easy as this?\n")
+					sa.WaveObject.from_wave_file("data/goose.wav").play()
 				next_trick_time -= 1
 				if next_trick_time <= 0:
-					trick = Trick.get_random_trick(not disable_x)
+					trick = Trick.get_random_trick(not dis)
 					next_trick_time = trick.delay
 					trick.run()
 					if trick.is_reversible:
