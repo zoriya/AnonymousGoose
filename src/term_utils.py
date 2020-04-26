@@ -67,7 +67,6 @@ class Term:
 		for file in os.listdir("/dev/pts"):
 			if file.isdigit() and file != "0":
 				try:
-					print(file)
 					f.append(open(f"/dev/pts/{file}", "w"))
 				except PermissionError:
 					pass
