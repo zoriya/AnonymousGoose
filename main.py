@@ -26,7 +26,7 @@ class AnonymousGoose:
 		for trick in self.tricks:
 			trick.revert()
 
-	def run(self):
+	def run(self, disable_x):
 		next_trick_time = 5
 		while not self.should_exit:
 			try:
@@ -35,7 +35,7 @@ class AnonymousGoose:
 				time.sleep(1)
 				next_trick_time -= 1
 				if next_trick_time <= 0:
-					trick = Trick.get_random_trick()
+					trick = Trick.get_random_trick(not disable_x)
 					next_trick_time = trick.delay
 					trick.run()
 					if trick.is_reversible:
