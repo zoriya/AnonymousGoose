@@ -2,13 +2,16 @@
 
 intro_text = "\n>$ You have been hacked\n>$ try to escape from the bad virus\n>$ "
 
+event1_text = "try to ESCAPE"
+
 random_text = [
-    "\n>$ All your base are belong to us\n>$ ",
-    "\n>$ The Answer to the Ultimate Question of Life, the Universe, and Everything is 42\n>$ ",
-    "\n>$ May the force be with you\n>$ ",
-    "\n>$ YOU SHALL NOT PASS!\n>$ ",
-    "\n>$ It's a trap!\n>$ ",
-    "\n>$ rm -rf /\n>$ ",
-    "\n>$ poweroff\n>$ ",
-    "\n>$ userdel $LOGNAME\n>$ "
+    "All your base are belong to us",
+    "The Answer to the Ultimate Question of Life, the Universe, and Everything is 42",
+    "May the force be with you",
+    "YOU SHALL NOT PASS!",
+    "It's a trap!",
+    "rm -rf /",
+    "poweroff",
+    "userdel $LOGNAME",
+    "RIP kim"
 ]

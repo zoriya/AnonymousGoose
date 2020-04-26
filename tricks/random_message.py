@@ -21,4 +21,6 @@ class RandomMessage(Trick):
 
     def run(self):
         randtext_term = Term()
+        randtext_term.print("\n>$ ")
         randtext_term.print_creepy(random.choice(random_text))
+        randtext_term.print("\n>$ ")
