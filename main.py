@@ -6,6 +6,7 @@ import sys
 from term_utils import Term
 from command_helper import CommandHelper
 from trick import Trick
+from scenario import intro
 
 
 class AnonymousGoose:
@@ -13,7 +14,6 @@ class AnonymousGoose:
 		self.should_exit = False
 		self.stopped = False
 		self.tricks = []
-		self.log = []
 		self.keyboard_listener = pyxhook.HookManager()
 		self.keyboard_listener.KeyUp = self.key_pressed
 		self.keyboard_listener.HookKeyboard()
@@ -26,7 +26,7 @@ class AnonymousGoose:
 		for trick in self.tricks:
 			trick.revert()
 
-	def run(self, disable_x):
+	def run(self):
 		next_trick_time = 5
 		while not self.should_exit:
 			try:
@@ -35,7 +35,7 @@ class AnonymousGoose:
 				time.sleep(1)
 				next_trick_time -= 1
 				if next_trick_time <= 0:
-					trick = Trick.get_random_trick(not disable_x)
+					trick = Trick.get_random_trick()
 					next_trick_time = trick.delay
 					trick.run()
 					if trick.is_reversible:
@@ -46,10 +46,7 @@ class AnonymousGoose:
 	def key_pressed(self, key):
 		if key.Ascii == 27:
 			self.should_exit = True
-		else:
-			self.log.append(key.key_pressed)
-		print(self.log)
-			
+
 	def stop(self):
 		if self.stopped:
 			return
@@ -60,6 +57,7 @@ class AnonymousGoose:
 if __name__ == "__main__":
 	disable_x = len(sys.argv) == 2 and sys.argv[1] == '-x'
 	
+	intro()
 	goose = AnonymousGoose()
 	goose.run(disable_x)
 	goose.stop()

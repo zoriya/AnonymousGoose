@@ -34,6 +34,7 @@ class Trick(ABC):
 		from tricks.anim_ascii import AnimAsciiTrick
 		from tricks.reflection import ReflectionTrick
 		from tricks.rotation import RotationTrick
+		from tricks.random_message import RandomMessage
 		tricks = [
 			LaughingGooseTrick,
 			GlorifyGooseTrick,
@@ -41,7 +42,8 @@ class Trick(ABC):
 		]
 		x_tricks = [
 			ReflectionTrick,
-			RotationTrick
+			RotationTrick,
+			RandomMessage
 		]
 		
 		if keep_x:
