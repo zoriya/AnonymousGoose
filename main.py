@@ -7,6 +7,7 @@ from term_utils import Term
 from command_helper import CommandHelper
 from trick import Trick
 
+
 class AnonymousGoose:
 	def __init__(self):
 		self.should_exit = False
