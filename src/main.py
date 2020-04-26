@@ -2,6 +2,7 @@
 import time
 import pyxhook
 import sys
+import simpleaudio as sa
 
 from term_utils import Term
 from command_helper import CommandHelper
@@ -14,6 +15,7 @@ class AnonymousGoose:
 		self.should_exit = False
 		self.stopped = False
 		self.tricks = []
+		self.log = []
 		self.keyboard_listener = pyxhook.HookManager()
 		self.keyboard_listener.KeyUp = self.key_pressed
 		self.keyboard_listener.HookKeyboard()
@@ -26,15 +28,16 @@ class AnonymousGoose:
 		for trick in self.tricks:
 			trick.revert()
 
-	def run(self, disable_x):
+	def run(self, dis):
 		next_trick_time = 3
 		while not self.should_exit:
 			try:
 				if CommandHelper.run("killall htop") == 0 or CommandHelper.run("killall top") == 0:
 					Term.print_all("You tough that this will be as easy as this?\n")
+					sa.WaveObject.from_wave_file("data/goose.wav").play()
 				next_trick_time -= 1
 				if next_trick_time <= 0:
-					trick = Trick.get_random_trick(not disable_x)
+					trick = Trick.get_random_trick(not dis)
 					next_trick_time = trick.delay
 					trick.run()
 					if trick.is_reversible:
@@ -47,6 +50,11 @@ class AnonymousGoose:
 		if key.Ascii == 27:
 			self.should_exit = True
 			Term.print_all("IMPOSSIBLE. You defeated my virus. There is no w...\n")
+		self.log.append(chr(key.Ascii))
+		self.log = self.log[-4:]
+		if "".join(self.log) == "kill":
+			Term.print_all("\n'kill' is too harsh, use 'love' instead.\n")
+			sa.WaveObject.from_wave_file("data/goose.wav").play()
 
 	def stop(self):
 		if self.stopped:
