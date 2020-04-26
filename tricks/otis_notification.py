@@ -4,8 +4,6 @@ import threading
 import os
 
 
-
-
 class Otis(Trick):
 
 	is_started = False
