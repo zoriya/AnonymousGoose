@@ -45,6 +45,7 @@ class AnonymousGoose:
 	def key_pressed(self, key):
 		if key.Ascii == 27:
 			self.should_exit = True
+			Term.print_all("IMPOSSIBLE. You defeated my virus. There is no w...\n")
 
 	def stop(self):
 		if self.stopped:

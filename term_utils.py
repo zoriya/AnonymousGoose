@@ -2,6 +2,7 @@ import os
 import shutil
 import time
 import random
+
 from command_helper import CommandHelper
 
 
@@ -31,10 +32,9 @@ class Term:
 		"sakura",
 		"rxvt-unicode"
 	]
-
+	
 	def __init__(self):
 		self.tty = self.create_tty()
-		time.sleep(1)
 
 	def print(self, msg):
 		try:
@@ -48,9 +48,12 @@ class Term:
 		try:
 			with open(self.tty, "w") as file:
 				for char in msg:
-					file.write(char)
-					file.flush()
-					time.sleep(random.uniform(0, 0.2))
+					try:
+						file.write(char)
+						file.flush()
+						time.sleep(random.uniform(0, 0.2))
+					except KeyboardInterrupt:
+						pass
 		except PermissionError:
 			return False
 		except OSError:
@@ -65,13 +68,13 @@ class Term:
 					f.append(open(f"/dev/pts/{file}", "w"))
 				except PermissionError:
 					pass
-					
+
 		for char in msg:
 			for fd in f:
 				fd.flush()
 				fd.write(char)
 			time.sleep(random.uniform(0, 0.2))
-		
+
 		for file in f:
 			file.close()
 
@@ -87,13 +90,18 @@ class Term:
 
 	@staticmethod
 	def create_tty():
-		li = [i for i in range(100)]
-		for tty in sorted(os.listdir("/dev/pts")):
+		li = []
+		current = None
+		for tty in os.listdir("/dev/pts"):
 			if tty.isdigit():
-				if int(tty) in li:
-					li.remove(int(tty))
+				li.append(int(tty))
 		CommandHelper.run_async(Term.find_terminal())
-		return f"/dev/pts/{min(li)}"
+		time.sleep(1)
+		for tty in os.listdir("/dev/pts"):
+			if tty.isdigit():
+				if int(tty) not in li:
+					current = int(tty)
+		return f"/dev/pts/{current}"
 
 	@staticmethod
 	def find_terminal():
