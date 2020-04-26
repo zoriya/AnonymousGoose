@@ -1,5 +1,4 @@
 from trick import Trick
-from command_helper import CommandHelper
 import time
 import threading
 import os
@@ -7,7 +6,7 @@ import os
 
 
 
-class Otis:
+class Otis(Trick):
 
 	is_started = False
 

@@ -36,13 +36,15 @@ class Trick(ABC):
 		from tricks.rotation import RotationTrick
 		from tricks.random_message import RandomMessage
 		from tricks.otis_notification import Otis
+		from tricks.scenario import Scenario
 		
 		tricks = [
 			GlorifyGooseTrick,
 			AnimAsciiTrick,
 			LaughingGooseTrick,
 			RandomMessage,
-			Otis
+			Otis,
+			Scenario
 		]
 		x_tricks = [
 			ReflectionTrick,

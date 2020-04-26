@@ -6,8 +6,6 @@ import sys
 from term_utils import Term
 from command_helper import CommandHelper
 from trick import Trick
-from scenario import intro
-
 
 class AnonymousGoose:
 	def __init__(self):
@@ -57,7 +55,6 @@ class AnonymousGoose:
 
 if __name__ == "__main__":
 	disable_x = len(sys.argv) == 2 and sys.argv[1] == '-x'
-	intro()
 	goose = AnonymousGoose()
 	goose.run(disable_x)
 	goose.stop()
