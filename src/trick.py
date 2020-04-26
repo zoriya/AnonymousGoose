@@ -39,10 +39,14 @@ class Trick(ABC):
 		
 		tricks = [
 			GlorifyGooseTrick,
+			GlorifyGooseTrick,
 			AnimAsciiTrick,
 			LaughingGooseTrick,
 			RandomMessage,
+			RandomMessage,
 			Otis,
+			Otis,
+			Scenario,
 			Scenario
 		]
 		x_tricks = [
