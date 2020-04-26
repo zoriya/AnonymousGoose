@@ -1,4 +1,4 @@
-from data.scenario_resource import random_text
+from tricks.data.scenario_resource import random_text
 from term_utils import Term
 from trick import Trick
 import random

@@ -1,6 +1,6 @@
 from trick import Trick
-from data.scenario_resource import intro_text
-from data.scenario_resource import event1_text
+from tricks.data.scenario_resource import intro_text
+from tricks.data.scenario_resource import event1_text
 from term_utils import Term
 import time
 

@@ -1,5 +1,5 @@
 from trick import Trick
-from nian_cat import nian
+from tricks.data.nian_cat import nian
 from term_utils import Term
 import simpleaudio as sa
 import time
@@ -13,7 +13,6 @@ class AnimAsciiTrick(Trick):
 		is_open = True
 		musicobj = sa.WaveObject.from_wave_file("data/nian_gooz.wav")
 		playobj = musicobj.play()
-		terminal.print("ouioui")
 		while is_open:
 			for frame in nian:
 				is_open = terminal.print(frame)

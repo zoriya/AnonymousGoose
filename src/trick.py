@@ -2,7 +2,6 @@ import random
 from abc import ABC, abstractmethod
 
 
-
 class Trick(ABC):
 	@property
 	@abstractmethod

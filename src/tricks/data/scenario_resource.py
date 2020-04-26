@@ -1,5 +1,3 @@
-
-
 intro_text = "\n>$ You have been hacked\n>$ try to escape from the bad virus\n>$ "
 
 event1_text = "try to ESCAPE"
