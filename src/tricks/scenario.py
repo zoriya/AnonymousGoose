@@ -9,8 +9,8 @@ class Scenario(Trick):
 
 	@staticmethod
 	def event(text_event):
-		intro_terminal = Term()
-		intro_terminal.print_creepy(text_event)
+		Term()
+		Term.print_all_creepy(text_event)
 		time.sleep(2)
 	
 	@property

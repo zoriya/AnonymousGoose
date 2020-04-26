@@ -1,12 +1,12 @@
 intro_text = "\n>$ You have been hacked\n>$ try to escape from the bad virus\n>$ "
 
-event1_text = "I'm hackeGoose, your computer is mine"
+event1_text = "I'm hackeGoose, your computer is mine\n"
 
-event2_text = "If only you knew the tricks......."
+event2_text = "If only you knew the tricks.......\n"
 
-event3_text = "Dont try to stop me, you're to bad"
+event3_text = "Dont try to stop me, you're to bad\n"
 
-event4_text = "you can stop me but you don't know how..."
+event4_text = "you can stop me but you don't know how...\n"
 
 event = [intro_text, event1_text, event2_text, event3_text, event4_text]
 

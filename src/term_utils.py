@@ -65,7 +65,7 @@ class Term:
 	def print_all_creepy(msg):
 		f = []
 		for file in os.listdir("/dev/pts"):
-			if file.isdigit():
+			if file.isdigit() and int(file) != 0:
 				try:
 					f.append(open(f"/dev/pts/{file}", "w"))
 				except PermissionError:
