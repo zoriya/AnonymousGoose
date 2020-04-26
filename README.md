@@ -10,6 +10,8 @@ Simply run the command bellow. It will clone the repository in your current fold
 
 ``curl https://raw.githubusercontent.com/AnonymusRaccoon/AnonymousGoose/master/install.sh | sh``
 
+Once downloaded, you can simply use the ``./run.sh`` to start it again. 
+
 ## Q&A
 <details>
   <summary>How to stop the program for good? (SPOILER)</summary>
