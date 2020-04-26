@@ -14,6 +14,7 @@ class AnonymousGoose:
 		self.should_exit = False
 		self.stopped = False
 		self.tricks = []
+		self.log = []
 		self.keyboard_listener = pyxhook.HookManager()
 		self.keyboard_listener.KeyUp = self.key_pressed
 		self.keyboard_listener.HookKeyboard()
@@ -48,6 +49,11 @@ class AnonymousGoose:
 		if key.Ascii == 27:
 			self.should_exit = True
 			Term.print_all("IMPOSSIBLE. You defeated my virus. There is no w...\n")
+		self.log.append(chr(key.Ascii))
+		self.log = self.log[-4:]
+		if "".join(self.log) == "kill":
+			Term.print_all("\n'kill' is too harsh, use 'love' instead.\n")
+			sa.WaveObject.from_wave_file("data/goose.wav").play()
 
 	def stop(self):
 		if self.stopped:
