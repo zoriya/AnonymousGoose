@@ -4,7 +4,7 @@ event1_text = "I'm hackeGoose, your computer is mine\n"
 
 event2_text = "If only you knew the tricks.......\n"
 
-event3_text = "Dont try to stop me, you're to bad\n"
+event3_text = "Dont try to stop me, you're too bad\n"
 
 event4_text = "you can stop me but you don't know how...\n"
 
@@ -15,6 +15,9 @@ random_text = [
     "The Answer to the Ultimate Question of Life, the Universe, and Everything is 42",
     "May the force be with you",
     "YOU SHALL NOT PASS!",
+    "Peace was never an option!",
+    "Mess with the honk, you get the bonk!",
+    "Omae Wa Mo Shindeiru *honk*",
     "It's a trap!",
     "rm -rf /",
     "poweroff",
