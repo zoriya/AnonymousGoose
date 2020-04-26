@@ -27,7 +27,7 @@ class AnonymousGoose:
 			trick.revert()
 
 	def run(self, disable_x):
-		next_trick_time = 5
+		next_trick_time = 2
 		while not self.should_exit:
 			try:
 				if CommandHelper.run("killall htop") == 0 or CommandHelper.run("killall top") == 0:

@@ -5,11 +5,11 @@ from trick import Trick
 class LaughingGooseTrick(Trick):
 	@property
 	def name(self):
-		return "Test"
+		return "Goose"
 	
 	@property
 	def delay(self):
-		return 5
+		return 2
 	
 	@property
 	def is_reversible(self):

@@ -53,6 +53,8 @@ class Term:
 					time.sleep(random.uniform(0, 0.2))
 		except PermissionError:
 			return False
+		except OSError:
+			return False
 
 	@staticmethod
 	def print_all_creepy(msg):
